@@ -48,7 +48,7 @@ public class Bridge {
 
 
         // Create the Queue (Array based) to hold the goats
-        this.goatQueue=new ArrayQueue<>();
+        this.goatQueue=new ArrayQueue<>(CUTE_SIZE);
 
         // Create the troll with hp based on the number of 
         // goats and the hp modifier.
@@ -99,26 +99,41 @@ public class Bridge {
             // If the troll is still active
             troll.interact(goatQueue.front());
                 // Adjust the troll's power by the goat's impact amount
-            if (troll.isActive() == true) {
-                troll.adjustPower(0);
-
-            } else {
+//            if (troll.isActive() == true) {
+//                troll.adjustPower(0);
+//
+//            } else {
+//                troll.finished(goatQueue.front());
+//                break;
+//            }
+                // If the troll survived the goat interaction ...
+            if (troll.isActive()==false){
                 troll.finished(goatQueue.front());
+                while (goatQueue.size()>0) {
+                    System.out.println("The bridge is clear and " + goatQueue.front() + " crosses the bridge.");
+                    goatQueue.dequeue();
+                }
                 break;
             }
-                // If the troll survived the goat interaction ...
-
                 // The troll displays its interaction conversation
-
+            if (goatQueue.front().isActive()==true){
+                goatQueue.enqueue(goatQueue.front());
+                goatQueue.dequeue();
+            }
+            else {
+                goatQueue.dequeue();
+            }
 
                 // If the goat is still active after the troll interaction,
                 // add it to the back of the line to try again.
 
+//            if (troll.isActive()==false){
+//                    troll.finished(goatQueue.front());
+//                    break;
+//            }
         }
 
-
-
-                // Else the troll is finished
+                        // Else the troll is finished
                     // Display the troll finished converstation.
 
             // Else
@@ -146,7 +161,7 @@ public class Bridge {
 
             // For the battle version, give the goats string names.
             for (char c = 'A'; c < size + 'A'; c++) {
-                int damage = ran.nextInt (10);
+                int damage = ran.nextInt (GOAT_MAX_POWER);
                 IGoat bg = new BattleGoat (c + "opsy", damage);
                 myBridge.addGoat(bg);
             }

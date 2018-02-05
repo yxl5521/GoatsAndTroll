@@ -6,7 +6,6 @@ import queues.LinkedQueue;
 public class BattleTroll implements ITroll {
     private int HP;
     private IGoat goat;
-    private LinkedQueue que;
     private boolean active=true;
     public BattleTroll(int HP){
         this.HP=HP;
@@ -14,19 +13,19 @@ public class BattleTroll implements ITroll {
     public void interact(IGoat goat){
         this.goat=goat;
 
-        goat.approach();
-        HP-=goat.impact();
+        System.out.println(goat.approach());
+        adjustPower(goat.impact());
 
     }
     public void adjustPower(int num){
-        num=HP;
+        HP-=num;
         System.out.println("A troll stands guard.");
-        if (num>0){
+        if (HP>0){
             goat.setActive(false);
-            que.dequeue();
-            System.out.println("The troll eats"+goat.toString());
+            System.out.println("The troll eats "+goat.toString());
         }
         else {
+            goat.setActive(false);
             this.active=false;
         }
     }
