@@ -40,7 +40,7 @@ public class BattleGoat implements IGoat
     * @return The goats conversation string
     */
    public String approach () {
-      return name + " insert approach conversation here";
+      return name + " runs to the bridge";
    }
 
     /**

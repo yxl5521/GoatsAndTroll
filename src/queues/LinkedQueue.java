@@ -1,20 +1,26 @@
 package queues;
+import goats.BattleGoat;
+
 import java.util.LinkedList;
 public class LinkedQueue<T> implements IQueue<T> {
-    public T front;
+    private boolean empty=false;
+    LinkedList<T> myList=new LinkedList<>();
     public int size(){
-        return 0;
+        return myList.size();
     }
     public boolean isEmpty(){
-        return false;
+
+        return empty;
     }
-    public T front(){ return front;
+    public T front(){
+
+        return myList.peek();
     }
     public void enqueue(T goat){
-
+        myList.addLast(goat);
     }
     public T dequeue(){
-        return front;
+        return myList.removeFirst();
 
     }
 }

@@ -41,7 +41,7 @@ public class CuteGoat implements IGoat {
     * @return The goats conversation string
     */
    public String approach () {
-      return this + " insert approach string here";
+      return this + " hops to the bridge";
    }
 
    /**

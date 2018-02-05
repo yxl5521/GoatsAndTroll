@@ -1,20 +1,28 @@
 package queues;
 
 public class ArrayQueue<T> implements IQueue<T> {
-    public T front;
+
     public int size(){
-        return 0;
+        return 10;
     }
     public boolean isEmpty(){
         return false;
     }
-    public T front(){ return front;
+    public T front(){
+        T[] array;
+        array=(T[]) new Object[size()];
+        return array[0];
     }
     public void enqueue(T goat){
+        T[] array;
+        array=(T[]) new Object[size()];
 
     }
     public T dequeue(){
-        return front;
+        T[] array;
+        array=(T[]) new Object[size()];
+        return array[0];
+
 
     }
 
