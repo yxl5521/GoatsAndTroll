@@ -1,5 +1,10 @@
 package queues;
 
+/**
+ * @ author Liang,Yu(yxl5521)
+ * @param <T> the generic
+ */
+
 public class ArrayQueue<T> implements IQueue<T> {
     private int size;
     private T[] array;

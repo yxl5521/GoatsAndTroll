@@ -1,7 +1,11 @@
 package queues;
-import goats.BattleGoat;
 
 import java.util.LinkedList;
+
+/**
+ * @author Liang,Yu(yxl5521)
+ * @param <T> generic
+ */
 public class LinkedQueue<T> implements IQueue<T> {
     private boolean empty=false;
     LinkedList<T> myList=new LinkedList<>();

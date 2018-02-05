@@ -1,5 +1,4 @@
 package goats;
-
 /**
  * The cute goat class, where everything is happy and rainbows.
  *
