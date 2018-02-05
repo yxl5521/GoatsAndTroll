@@ -10,6 +10,8 @@ import goats.IGoat;
 import goats.CuteGoat;
 import goats.BattleGoat;
 
+import java.util.Queue;
+
 /**
  * @author Bruce Herring
  *
@@ -41,11 +43,15 @@ public class Bridge {
     private Bridge ()
     {
         // Set the game type
+        this.type=GameType.CUTE;
+
 
         // Create the Queue (Array based) to hold the goats
+        this.goatQueue=new ArrayQueue<>();
 
         // Create the troll with hp based on the number of 
         // goats and the hp modifier.
+        this.troll=new CuteTroll(TROLL_HP_MODIFIER);
     }
 
     /**
@@ -53,12 +59,16 @@ public class Bridge {
      * @param size Number of goats that are trying to cross the bridge.
      */
     private Bridge (int size) {
-        // Set the game type
 
+
+        // Set the game type
+        this.type=GameType.BATTLE;
         // Create the Queue (Array based) to hold the goats
+        this.goatQueue=new ArrayQueue<>();
 
         // Create the troll with hp based on the number of 
         // goats and the hp modifier.
+        this.troll=new BattleTroll(TROLL_HP_MODIFIER);
     }
 
 
